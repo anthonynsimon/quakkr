@@ -1,6 +1,5 @@
-<%= form_for([@post, @comment], remote: true) do |f| %>
+<%= form_for([post, comment], remote: true) do |f| %>
   <div class="field">
-    <%= f.label :body %><br>
     <%= f.text_field :body %>
   </div>
   <div class="actions">

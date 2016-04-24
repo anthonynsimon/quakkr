@@ -1,2 +1,2 @@
-$('#comments').append("<%=j render 'comments/comment', post: @post, comment: @comment %>");
-$('#comment_body').val('');
+$('#post_<%= @post.id %> #comments').append("<%=j render 'comments/comment', post: @post, comment: @comment %>");
+$('#post_<%= @post.id %> #new_comment #comment_body').val('');

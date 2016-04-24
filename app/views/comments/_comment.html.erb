@@ -1,7 +1,7 @@
-<div>
-  <%= comment.user.user_name %>:
+<div id="comment_<%= comment.id %>">
+  <%= link_to comment.user.user_name, user_path(comment.user) %>:
   <%= comment.body %>
   <% if comment.user == current_user %>
-    <%= link_to 'Delete', post_comment_path(@post, comment), confirm: 'Are you sure?', method: :delete, remote: true %>
+    <%= link_to fa_icon("remove"), post_comment_path(post, comment), confirm: 'Are you sure?', method: :delete, remote: true %>
   <% end %>
 </div>

@@ -18,8 +18,6 @@
 
 <br>
 
-<%= render 'comments/form' %>
-
 <% if current_user == @post.user %>
   <%= link_to 'Edit', edit_post_path(@post) %> |
 <% end %>

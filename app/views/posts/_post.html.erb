@@ -1,8 +1,11 @@
-<div class="card m-b-2">
+<div id="post_<%= post.id %>" class="card m-b-2">
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
       <div>
-        <%= link_to "@#{post.user.user_name}", user_path(post.user) %>
+        <%= link_to "#{post.user.user_name}", user_path(post.user) %>
+        <% if current_user == post.user %>
+          <%= link_to 'Edit', edit_post_path(post), class: 'small pull-xs-right m-l-1' %>
+        <% end %>
         <p class="text-muted small pull-xs-right"><%= time_ago_in_words post.created_at %> ago</p>
       </div>
       <div>
@@ -10,13 +13,12 @@
       </div>
     </li>
     <li class="list-group-item">
-      <%= link_to 'Likes', '#' %>
-      <%= link_to 'Comments', post_comments_path(post) %>
-      <div class="pull-xs-right">
-      <!-- <% if current_user == post.user %>
-        <%= link_to 'Edit', edit_post_path(post) %>
-        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %> -->
+      <div id="comments">
+        <% post.comments.each do |comment| %>
+          <%= render 'comments/comment', post: post, comment: comment %>
+        <% end %>
       </div>
+      <%= render 'comments/form', post: post, comment: Comment.new %>
+    </li>
   </ul>
 </div>

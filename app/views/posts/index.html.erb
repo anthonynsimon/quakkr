@@ -1,10 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'New Post', new_post_path %>
-
-<%= form_for(Post.new) do |f| %>
+<%= form_for(Post.new, remote: true) do |f| %>
   <div class="field">
-    <%= f.label :message %><br>
     <%= f.text_field :message %>
   </div>
   <div class="actions">
@@ -12,5 +9,9 @@
   </div>
 <% end %>
 
-<%= render partial: 'post', collection: @posts.order(:created_at).reverse_order %>
+<br>
+
+<div id="posts">
+  <%= render partial: 'post', collection: @posts.order(:created_at).reverse_order %>
+</div>
 
