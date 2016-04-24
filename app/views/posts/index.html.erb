@@ -1,29 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Message</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.user.user_name %> | </td>
-        <td><%= post.message %> | </td>
-        <td><%= link_to 'Show', post %></td>
-        <% if current_user == post.user %>
-          <td><%= link_to 'Edit', edit_post_path(post) %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
 <%= link_to 'New Post', new_post_path %>
+
+<%= form_for(Post.new) do |f| %>
+  <div class="field">
+    <%= f.label :message %><br>
+    <%= f.text_field :message %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= render partial: 'post', collection: @posts.order(:created_at).reverse_order %>
+
