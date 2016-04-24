@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @post.message %>
+</p>
+
+<h5>Comments:</h5> 
+<% if @post.comments %>
+  <% @post.comments.each do |comment| %>
+    <p>
+      <%= comment.user.user_name %>:
+      <%= comment.body %>
+      <% if comment.user == current_user %>
+        <%= link_to 'Delete', post_comment_path(@post, comment), confirm: 'Are you sure?', method: :delete %>
+      <% end %>
+    </p>
+  <% end %>
+<% end %>
+
+<%= render 'comments/form' %>
+
+<% if current_user == @post.user %>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
+<%= link_to 'Back', posts_path %>
