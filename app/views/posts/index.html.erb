@@ -1,12 +1,15 @@
-<p id="notice"><%= notice %></p>
+<br>
+
+<% flash.each do |type, message| %>
+  <div class="alert alert-warning fade in" role="alert">
+    <button class="close" data-dismiss="alert">×</button>
+    <%= notice %>
+  </div>
+<% end %>
 
 <%= form_for(Post.new, remote: true) do |f| %>
-  <div class="field">
-    <%= f.text_field :message %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.text_field :message, class: 'form-control', placeholder: 'Start typing and press enter to add a post',
+      autocomplete: :off %>
 <% end %>
 
 <br>

@@ -1,24 +1,21 @@
 <div id="post_<%= post.id %>" class="card m-b-2">
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">
-      <div>
-        <%= link_to "#{post.user.user_name}", user_path(post.user) %>
+  <div class="card-block">
         <% if current_user == post.user %>
-          <%= link_to 'Edit', edit_post_path(post), class: 'small pull-xs-right m-l-1' %>
-        <% end %>
-        <p class="text-muted small pull-xs-right"><%= time_ago_in_words post.created_at %> ago</p>
-      </div>
-      <div>
-        <%= post.message %>
-      </div>
-    </li>
-    <li class="list-group-item">
-      <div id="comments">
-        <% post.comments.each do |comment| %>
-          <%= render 'comments/comment', post: post, comment: comment %>
-        <% end %>
-      </div>
-      <%= render 'comments/form', post: post, comment: Comment.new %>
+        <%= link_to fa_icon("remove", text: 'Delete post'), post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, 
+            class: 'small pull-xs-right m-l-1' %>
+      <% end %>
+      <h5 class="card-title"><%= link_to "#{post.user.user_name}", user_path(post.user) %></h5>
+      <p class="small text-muted"><%= time_ago_in_words post.created_at %> ago</p>
+      <%= post.message %>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li id="comments" class="list-group-item">
+    <% post.comments.each do |comment| %>
+      <%= render 'comments/comment', post: post, comment: comment %>
+    <% end %>
     </li>
   </ul>
+  <div class="card-footer">
+    <%= render 'comments/form', post: post, comment: Comment.new %>
+  </div>
 </div>
