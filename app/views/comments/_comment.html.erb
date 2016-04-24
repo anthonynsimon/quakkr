@@ -1,4 +1,5 @@
 <div id="comment_<%= comment.id %>">
+    <img src="/img/placeholder.png" class="img-circle" width="22x">
     <%= link_to comment.user.user_name, user_path(comment.user) %>:
     <%= comment.body %>
     <% if comment.user == current_user %>

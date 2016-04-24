@@ -4,7 +4,10 @@
         <%= link_to fa_icon("remove", text: 'Delete post'), post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, 
             class: 'small pull-xs-right m-l-1' %>
       <% end %>
-      <h5 class="card-title"><%= link_to "#{post.user.user_name}", user_path(post.user) %></h5>
+      <h5 class="card-title">
+        <img src="/img/placeholder.png" class="img-circle" width="40x">
+        <%= link_to "#{post.user.user_name}", user_path(post.user) %>
+      </h5>
       <p class="small text-muted"><%= time_ago_in_words post.created_at %> ago</p>
       <h5>
         <%= post.message %>

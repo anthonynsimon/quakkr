@@ -12,7 +12,7 @@
       autocomplete: :off, autofocus: true %>
 <% end %>
 
-<br>
+<hr class="m-y-2">
 
 <div id="posts">
   <%= render partial: 'post', collection: @posts.order(:created_at).reverse_order %>
