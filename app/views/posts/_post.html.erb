@@ -6,7 +6,9 @@
       <% end %>
       <h5 class="card-title"><%= link_to "#{post.user.user_name}", user_path(post.user) %></h5>
       <p class="small text-muted"><%= time_ago_in_words post.created_at %> ago</p>
-      <%= post.message %>
+      <h5>
+        <%= post.message %>
+      </h5>
   </div>
   <ul class="list-group list-group-flush">
     <li id="comments" class="list-group-item">

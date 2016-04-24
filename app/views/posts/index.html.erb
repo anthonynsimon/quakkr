@@ -9,7 +9,7 @@
 
 <%= form_for(Post.new, remote: true) do |f| %>
   <%= f.text_field :message, class: 'form-control', placeholder: 'Start typing and press enter to add a post',
-      autocomplete: :off %>
+      autocomplete: :off, autofocus: true %>
 <% end %>
 
 <br>
