@@ -5,18 +5,18 @@
   <%= @post.message %>
 </p>
 
-<h5>Comments:</h5> 
-<% if @post.comments %>
-  <% @post.comments.each do |comment| %>
-    <p>
-      <%= comment.user.user_name %>:
-      <%= comment.body %>
-      <% if comment.user == current_user %>
-        <%= link_to 'Delete', post_comment_path(@post, comment), confirm: 'Are you sure?', method: :delete %>
+<div>
+  <h4>Comments:</h4> 
+  <div id="comments">
+    <% if @post.comments %>
+      <% @post.comments.each do |comment| %>
+        <%= render 'comments/comment', comment: comment%>
       <% end %>
-    </p>
-  <% end %>
-<% end %>
+    <% end %>
+  </div>
+</div>
+
+<br>
 
 <%= render 'comments/form' %>
 
