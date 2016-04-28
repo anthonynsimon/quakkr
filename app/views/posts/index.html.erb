@@ -18,6 +18,6 @@
   <%= render 'posts', posts: @posts %>
 </div>
 
-<div id="paginator" class="text-xs-center">
-  <%= link_to_next_page @posts, 'LOAD MORE', remote: true, id: 'load_more' %>
+<div id="paginator">
+    <%= link_to_next_page @posts, 'LOAD MORE', remote: true, id: 'load_more', class: 'paginator-circle text-xs-center' %>
 </div>
