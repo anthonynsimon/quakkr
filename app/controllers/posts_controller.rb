@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :authorize_edit, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.order(:created_at).reverse_order.page params[:page]
   end
 
   def show
