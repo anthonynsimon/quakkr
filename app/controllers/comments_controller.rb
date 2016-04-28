@@ -1,6 +1,15 @@
 class CommentsController < ApplicationController
   before_action :set_post
   
+  def index
+    @comments = @post.comments.order("created_at ASC")
+    
+    respond_to do |format|
+      # Don't render the app layout, just the comments partial
+      format.html { render layout: false }
+    end
+  end
+  
   def create
     @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
