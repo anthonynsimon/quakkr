@@ -1,3 +1,13 @@
+@import "partials/gradient";
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
+$pacifico: 'Pacifico', cursive;
+
+#brand-title {
+  font-family: $pacifico;
+  color: orange;
+}
+
 body {
   background-color: #F9FBFA;
 }

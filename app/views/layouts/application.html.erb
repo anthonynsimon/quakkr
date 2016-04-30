@@ -6,11 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-  <nav class="navbar navbar-light bg-white navbar-full navbar-bordered">
+<body>
+  <nav class="navbar navbar-inverse navbar-full">
     <div class="container">
-      <%= link_to 'Quack!', root_path, class: 'navbar-brand' %>
+      <%= link_to 'Quack!', root_path, id: 'brand-title', class: 'navbar-brand' %>
       <ul class="nav navbar-nav pull-xs-right">
         <% if current_user %>
           <li class="nav-item">
