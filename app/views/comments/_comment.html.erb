@@ -1,6 +1,6 @@
 <div id="comment_<%= comment.id %>">
     <img src="/img/placeholder.png" class="img-circle" width="22x">
-    <%= link_to comment.user.user_name, user_path(comment.user) %>:
+    <%= link_to comment.user.user_name, profile_path(comment.user.user_name) %>:
     <%= comment.body %>
     <% if comment.user == current_user %>
       <%= link_to fa_icon("remove"), post_comment_path(post, comment), confirm: 'Are you sure?', 

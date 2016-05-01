@@ -6,7 +6,7 @@
       <% end %>
       <h5 class="card-title">
         <img src="/img/placeholder.png" class="img-circle" width="40x">
-        <%= link_to "#{post.user.user_name}", user_path(post.user) %>
+        <%= link_to "#{post.user.user_name}", profile_path(post.user.user_name) %>
       </h5>
       <p class="small text-muted"><%= time_ago_in_words post.created_at %> ago</p>
       <h5>
