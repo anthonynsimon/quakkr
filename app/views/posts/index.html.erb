@@ -11,6 +11,6 @@
   <%= render 'posts', posts: @posts %>
 </div>
 
-<div id="paginator">
-    <%= link_to_next_page @posts, 'LOAD MORE', remote: true, id: 'load_more', class: 'paginator-circle text-xs-center' %>
+<div id="paginator" class="m-y-3 text-xs-center">
+    <%= link_to_next_page @posts, 'LOAD MORE', remote: true, id: 'load_more', class: 'btn btn-primary-outline btn-block' %>
 </div>

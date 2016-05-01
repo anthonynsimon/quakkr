@@ -1,30 +1,35 @@
 <div id="post_<%= post.id %>" class="card m-b-2">
-  <div class="card-block">
-      <% if current_user == post.user %>
-        <%= link_to fa_icon("remove", text: 'Delete post'), post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, 
-            class: 'small pull-xs-right m-l-1' %>
-      <% end %>
-      <h5 class="card-title">
-        <%= image_tag post.user.avatar.url(:thumb), class: 'img-circle m-y-1', width: '40#'%>
-        <%= link_to "#{post.user.user_name}", profile_path(post.user.user_name) %>
-      </h5>
-      <p class="small text-muted"><%= time_ago_in_words post.created_at %> ago</p>
-      <p><%= post.message %></p>
-  </div>
   <ul class="list-group list-group-flush">
+    <li id="content" class="list-group-item">
+      <div class="row">        
+        <div class="col-xs-8">
+          <%= image_tag post.user.avatar.url(:thumb), class: 'avatar-frame m-y-1', width: '40#'%>
+          <%= link_to "#{post.user.user_name}", profile_path(post.user.user_name) %>
+          <p><%= post.message %></p>
+        </div>
+        <div class="col-xs-4">
+          <p class="small text-muted text-xs-right"><%= time_ago_in_words post.created_at %> ago</p>
+          <% if current_user == post.user %>
+            <%= link_to fa_icon("remove", text: 'Delete'), post_path(post), method: :delete, data: { confirm: 'Deleting post. Are you sure?' }, 
+                class: 'small pull-xs-right' %>
+          <% end %>
+          
+      </div>
+    </li>
     <li id="comments" class="list-group-item">
-      <% if post.comments.count > 3 %>
-        <%= link_to "View all #{post.comments.count} comments", post_comments_path(post),
-            remote: true, class: 'more-comments', data: {post_id: "#{post.id}", type: "html"} %>
-      <% end %>
       <% if post.comments.any? %>
+        <% if post.comments.count > 3 %>
+          <%= link_to "View all #{post.comments.count} comments", post_comments_path(post),
+              remote: true, class: 'more-comments', data: {post_id: "#{post.id}", type: "html"} %>
+        <% end %>
+      
         <% post.comments.last(3).each do |comment| %>
           <%= render 'comments/comment', post: post, comment: comment %>
         <% end %>
       <% end %>
+      
+      <hr>
+      <%= render 'comments/form', post: post, comment: Comment.new %>
     </li>
   </ul>
-  <div class="card-footer">
-    <%= render 'comments/form', post: post, comment: Comment.new %>
-  </div>
 </div>

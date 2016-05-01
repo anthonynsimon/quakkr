@@ -6,7 +6,7 @@
           <%= f.label :avatar, 'Upload a new profile image:' %>
           <%= f.file_field :avatar %>
           <br>
-          <%= image_tag @user.avatar.url(:medium), class: 'img-circle m-y-1' %>
+          <%= image_tag @user.avatar.url(:medium), class: 'avatar-frame m-y-1' %>
         </div>
       
         <%= f.label 'Username:' %>

@@ -1,9 +1,12 @@
 <div class="container m-y-2 text-xs-center">
-    <%= image_tag @user.avatar.url(:medium), class: 'img-circle m-y-1', width: '120' %>
+    <%= image_tag @user.avatar.url(:medium), class: 'avatar-frame m-y-1', width: '120' %>
         
     <h4><%= @user.user_name %></h4>
     
-    <span class="small text-muted">Munich, Germany</span>
+    <p class="small text-muted">
+      Active <%= time_ago_in_words @user.current_sign_in_at.to_date %> ago <br>
+      <%= pluralize @user.posts.count, 'post' %>
+    </p>
     
     <%= content_tag :p, @user.bio, class: 'text-muted' %>
     

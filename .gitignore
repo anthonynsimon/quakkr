@@ -18,3 +18,6 @@
 
 # Ignore secrets
 .env
+
+# Ignore development assets
+/public/system/*

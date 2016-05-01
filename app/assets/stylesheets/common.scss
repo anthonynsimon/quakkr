@@ -6,7 +6,14 @@ $break-small: 768px;
 
 #brand-title {
   font-family: $pacifico;
-  color: orange;
+  color: white;
+}
+
+.avatar-frame {
+  $radius: 10%;
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
 }
 
 body {
@@ -19,6 +26,15 @@ p {
 
 .bg-white {
   background-color: #fff;
+}
+
+.bg-orange {
+  background-color: orange;
+}
+
+.outline-white {
+  border-color: white;
+  color: white;
 }
 
 .navbar-bordered {
@@ -38,28 +54,6 @@ p {
   border-radius: 3px;
 }
 
-.paginator-circle {
-  color: #4090DB;
-  height: 120px;
-  width: 120px;
-  margin: 60px auto 40px;
-  position: relative;
-  display: table;
-  border: 2px solid #4090DB;
-  border-radius: 50%;
-  :hover {
-    border: 1px solid #2D6DA8;
-    border-radius: 50%;
-  }
-}
-
-#load_more {
-  display: table-cell;
-  font-size: 12px;
-  padding: 0px 9px;
-  vertical-align: middle;
-  text-decoration: none;
-  a :hover {
-    color: #2D6DA8;
-  }
+.soft-shadow {
+  box-shadow: 0px 2px 8px #aaa;
 }
