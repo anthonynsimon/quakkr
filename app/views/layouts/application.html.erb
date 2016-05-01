@@ -9,22 +9,22 @@
 
 <body>
   <nav class="navbar navbar-inverse bg-faded navbar-full">
-    <div class="container">
+    <div class="container-fluid">
       <%= link_to 'Quack!', root_path, id: 'brand-title', class: 'navbar-brand' %>
       <ul class="nav navbar-nav pull-xs-right">
         <% if current_user %>
           <li class="nav-item">
-            <%= link_to 'Me', profile_path(current_user.user_name), class: 'nav-link' %>          
+            <%= link_to 'My Profile', profile_path(current_user.user_name), class: 'btn btn-primary-outline btn-sm' %>          
           </li>
           <li class="nav-item">
-            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link text-muted' %>          
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-secondary-outline btn-sm' %>          
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to 'Login', new_user_session_path, class: 'nav-link' %>          
+            <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary-outline btn-sm' %>          
           </li>
           <li class="nav-item">
-            <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>          
+            <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary-outline btn-sm' %>          
           </li>
         <% end %>
       </ul>
