@@ -1,6 +1,6 @@
 <div class="container m-y-2 text-xs-center">
-    <img src="/img/placeholder.png" class="img-circle m-y-1" width="80x">
-    
+    <%= image_tag @user.avatar.url(:medium), class: 'img-circle m-y-1', width: '120' %>
+        
     <h4><%= @user.user_name %></h4>
     
     <span class="small text-muted">Munich, Germany</span>

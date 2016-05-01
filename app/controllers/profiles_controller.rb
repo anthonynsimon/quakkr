@@ -26,7 +26,7 @@ class ProfilesController < ApplicationController
   end
   
   def profile_params
-    params.require(:user).permit(:user_name, :bio, :location)
+    params.require(:user).permit(:user_name, :bio, :avatar)
   end
   
   def authorize_edit

@@ -2,6 +2,13 @@
   <div class="card-block">
     <h5 class="card-title">Edit your profile</h5>
       <%= form_for(@user, url: { action: 'update' }) do |f| %>
+        <div class="field">
+          <%= f.label :avatar, 'Upload a new profile image:' %>
+          <%= f.file_field :avatar %>
+          <br>
+          <%= image_tag @user.avatar.url(:medium), class: 'img-circle m-y-1' %>
+        </div>
+      
         <%= f.label 'Username:' %>
         <%= f.text_field :user_name, class: 'form-control', placeholder: @user.user_name, autocomplete: :off %>
         
