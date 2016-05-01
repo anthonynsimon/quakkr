@@ -1,0 +1,13 @@
+<div class="card m-t-2">
+  <div class="card-block">
+    <h5 class="card-title">Edit your profile</h5>
+      <%= form_for(@user, url: { action: 'update' }) do |f| %>
+        <%= f.label 'Username:' %>
+        <%= f.text_field :user_name, class: 'form-control', placeholder: @user.user_name, autocomplete: :off %>
+        
+        <%= f.label 'Bio:' %>
+        <%= f.text_area :bio, class: 'form-control', placeholder: @user.bio, autocomplete: :off %>
+        <%= f.submit 'Save changes', class: 'btn btn-primary' %>
+      <% end %>
+  </div>
+</div>

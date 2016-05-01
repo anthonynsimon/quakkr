@@ -1,14 +1,23 @@
-<div class="card m-t-2">
-  <div class="card-block">
-      <h5 class="card-title">
-        <img src="/img/placeholder.png" class="img-circle" width="40x">
-        <%= @user.user_name %>
-      </h5>
-      <p class="small text-muted">Munich, Germany</p>
-      <p class="text-muted">Voyage to the orion nebula. Painter. Avid traveler!</p>
-  </div>
+<div class="container m-y-2 text-xs-center">
+    <img src="/img/placeholder.png" class="img-circle m-y-1" width="80x">
+    
+    <h4><%= @user.user_name %></h4>
+    
+    <span class="small text-muted">Munich, Germany</span>
+    
+    <%= content_tag :p, @user.bio, class: 'text-muted' %>
+    
+    <% if @user == current_user %>
+      <%= link_to 'Edit Profile', edit_profile_path(@user.user_name), class: 'btn btn-secondary-outline btn-sm' %>
+    <% end %>
 </div>
 
-<div id="posts">
-  <%= render partial: 'posts/post', collection: @user.posts.order(:created_at).reverse_order %>
-</div>
+<hr class="m-y-1">
+
+<% if @user.posts.count == 0 %>
+  <p class="text-xs-center text-muted">You haven't quacked anything yet :(</p>
+<% else %>
+  <div id="posts">
+    <%= render partial: 'posts/post', collection: @user.posts.order(:created_at).reverse_order %>
+  </div>
+<% end %>
