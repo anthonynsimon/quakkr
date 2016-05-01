@@ -28,6 +28,8 @@
     </div>
   </nav>
   
+  <%= render partial: 'common/flash_messages', flash: flash %>
+  
   <div class="container">
     <%= yield %>
   </div>
