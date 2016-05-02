@@ -1,17 +1,17 @@
-<div class="container m-y-2 text-xs-center">
-    <%= image_tag get_user_avatar_url_for(@user, :medium), class: 'avatar-frame m-y-1', width: '120' %>
-          
-    <h4><%= @user.user_name %></h4>
-    
-    <p class="small text-muted">
-      <%= pluralize @user.posts.count, 'post' %>
-    </p>
-    
-    <%= content_tag :p, @user.bio, class: 'text-muted' %>
-    
-    <% if @user == current_user %>
-      <%= link_to 'Edit Profile', edit_profile_path(@user.user_name), class: 'btn btn-secondary-outline btn-sm' %>
-    <% end %>
+<div class="row m-y-2 text-xs-center">
+  <%= image_tag get_user_avatar_url_for(@user, :medium), class: 'avatar-frame m-y-1', width: '120' %>
+      
+  <h4><%= @user.user_name %></h4>
+  
+  <% if @user == current_user %>
+    <%= link_to 'Edit Profile', edit_profile_path(@user.user_name), class: 'btn btn-secondary-outline btn-sm' %>
+  <% end %>
+  
+  <%= content_tag :p, @user.bio, class: 'text-muted m-t-1' %>
+  
+  <p class="small text-muted">
+    <%= pluralize @user.posts.count, 'post' %>
+  </p>
 </div>
 
 <hr class="m-y-1">
