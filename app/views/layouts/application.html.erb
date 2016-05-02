@@ -18,17 +18,17 @@
       <ul class="nav navbar-nav pull-xs-right">
         <% if current_user %>
           <li class="nav-item">
-            <%= link_to 'My Profile', profile_path(current_user.user_name), class: 'btn btn-secondary-outline outline-white btn-sm' %>          
+            <%= link_to 'My Profile', profile_path(current_user.user_name), class: 'nav-link btn btn-secondary-outline outline-white btn-sm' %>          
           </li>
           <li class="nav-item">
-            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-secondary-outline outline-white btn-sm' %>          
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link btn btn-secondary-outline outline-white btn-sm' %>          
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to 'Login', new_user_session_path, class: 'btn btn-secondary-outline outline-white btn-sm' %>          
+            <%= link_to 'Login', new_user_session_path, class: 'nav-link btn btn-secondary-outline outline-white btn-sm' %>          
           </li>
           <li class="nav-item">
-            <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-secondary-outline outline-white btn-sm' %>          
+            <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link btn btn-secondary-outline outline-white btn-sm' %>          
           </li>
         <% end %>
       </ul>

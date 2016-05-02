@@ -1,4 +1,4 @@
-<div class="row m-y-2 text-xs-center">
+<div class="container m-y-2 text-xs-center">
   <%= image_tag get_user_avatar_url_for(@user, :medium), class: 'avatar-frame m-y-1', width: '120' %>
       
   <h4><%= @user.user_name %></h4>
@@ -14,12 +14,19 @@
   </p>
 </div>
 
-<hr class="m-y-1">
 
-<% if @user.posts.count == 0 %>
-  <p class="text-xs-center text-muted">You haven't quacked anything yet :(</p>
-<% else %>
-  <div id="posts">
-    <%= render partial: 'posts/post', collection: @user.posts.order(:created_at).reverse_order %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+  
+    <hr>
+    
+    <% if @user.posts.count == 0 %>
+      <p class="text-xs-center text-muted">You haven't quacked anything yet :(</p>
+    <% else %>
+      <div id="posts">
+        <%= render partial: 'posts/post', collection: @user.posts.order(:created_at).reverse_order %>
+      </div>
+    <% end %>
+    
   </div>
-<% end %>
+</div>

@@ -4,24 +4,24 @@
 $pacifico: 'Pacifico', cursive;
 $break-small: 768px;
 
-#brand-title {
-  font-family: $pacifico;
-  color: white;
-}
-
-.avatar-frame {
-  $radius: 10%;
-  border-radius: $radius;
-  -moz-border-radius: $radius;
-  -webkit-border-radius: $radius;
-}
-
 body {
   background-color: #F9FBFA;
 }
 
 p {
   word-wrap: break-word;
+}
+
+#brand-title {
+  font-family: $pacifico;
+  color: white;
+}
+
+.avatar-frame {
+  $radius: 50%;
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
 }
 
 .bg-white {
@@ -37,11 +37,6 @@ p {
   color: white;
 }
 
-.navbar-bordered {
-  border: 1px solid #eeefef;
-  border-radius: 3px;
-}
-
 .form-wrapper {
   width: 100%;
   @media screen and (min-width: $break-small) {
@@ -52,8 +47,4 @@ p {
   padding: 40px;
   border: 1px solid #eeefef;
   border-radius: 3px;
-}
-
-.soft-shadow {
-  box-shadow: 0px 2px 8px #aaa;
 }

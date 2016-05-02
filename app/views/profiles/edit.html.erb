@@ -1,21 +1,21 @@
 <div class="card m-t-2">
   <div class="card-block text-xs-center">
     <h5 class="card-title">Edit your profile</h5>
-      <%= form_for(@user, url: { action: 'update' }) do |f| %>
-        <div class="field">
-          <%= f.label :avatar, 'Upload a new profile image:' %>
-          <%= f.file_field :avatar %>
-          <br>
-          <%= image_tag get_user_avatar_url_for(@user, :medium), class: 'avatar-frame m-y-1' %>
-        </div>
-      
-        <%= f.label 'Username:' %>
-        <%= f.text_field :user_name, class: 'form-control', placeholder: @user.user_name, autocomplete: :off %>
-        
-        <%= f.label 'Bio:' %>
-        <%= f.text_area :bio, class: 'form-control', placeholder: @user.bio, autocomplete: :off %>
+    <%= form_for(@user, url: { action: 'update' }) do |f| %>
+      <div class="field">
+        <%= f.label :avatar, 'Upload a new profile image:' %>
+        <%= f.file_field :avatar %>
         <br>
-        <%= f.submit 'Save changes', class: 'btn btn-primary btn-block' %>
-      <% end %>
+        <%= image_tag get_user_avatar_url_for(@user, :medium), class: 'avatar-frame m-y-1', width: '180px' %>
+      </div>
+    
+      <%= f.label 'Username:' %>
+      <%= f.text_field :user_name, class: 'form-control', placeholder: @user.user_name, autocomplete: :off %>
+      
+      <%= f.label 'Bio:' %>
+      <%= f.text_area :bio, class: 'form-control', placeholder: @user.bio, autocomplete: :off %>
+      <br>
+      <%= f.submit 'Save changes', class: 'btn btn-primary btn-block' %>
+    <% end %>
   </div>
 </div>
