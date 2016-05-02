@@ -16,19 +16,22 @@
           
       </div>
     </li>
-    <li id="comments" class="list-group-item">
-      <% if post.comments.any? %>
-        <% if post.comments.count > 3 %>
-          <%= link_to "View all #{post.comments.count} comments", post_comments_path(post),
-              remote: true, class: 'more-comments', data: {post_id: "#{post.id}", type: "html"} %>
+    <li class="list-group-item">
+      <div id="comments">
+        <% if post.comments.any? %>
+          <% if post.comments.count > 3 %>
+            <%= link_to "View all #{post.comments.count} comments", post_comments_path(post),
+                remote: true, class: 'more-comments', data: {post_id: "#{post.id}", type: "html"} %>
+          <% end %>
+        
+          <% post.comments.last(3).each do |comment| %>
+            <%= render 'comments/comment', post: post, comment: comment %>
+          <% end %>
         <% end %>
-      
-        <% post.comments.last(3).each do |comment| %>
-          <%= render 'comments/comment', post: post, comment: comment %>
-        <% end %>
-      <% end %>
+      </div>
       
       <hr>
+      
       <%= render 'comments/form', post: post, comment: Comment.new %>
     </li>
   </ul>
