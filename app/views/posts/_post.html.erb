@@ -11,19 +11,19 @@
     
     <h6 class="card-title">
       <%= image_tag get_user_avatar_url_for(post.user, :thumb), class: 'avatar-frame m-y-1', width: '40'%>
-      <%= link_to "#{post.user.user_name}", profile_path(post.user.user_name) %>
+      <strong><%= link_to "#{post.user.user_name}", profile_path(post.user.user_name), class: 'nav-link' %></strong>
     </h6>
     
     <p class="card-subtitle"><%= post.message %></p>
     
     <hr>
 
-    <div id="comments" class="m-b-1">
+    <div id="comments" class="m-y-1">
     
       <% if post.comments.any? %>
         <% if post.comments.count > 3 %>
           <%= link_to "View all #{post.comments.count} comments", post_comments_path(post),
-              remote: true, class: 'more-comments', data: {post_id: "#{post.id}", type: "html"} %>
+              remote: true, class: 'more-comments text-muted nav-link small', data: {post_id: "#{post.id}", type: "html"} %>
         <% end %>
         
         <% post.comments.last(3).each do |comment| %>

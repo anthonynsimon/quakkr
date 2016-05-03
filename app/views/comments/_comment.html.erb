@@ -1,14 +1,14 @@
 <div id="comment_<%= comment.id %>">
 
-    <%= image_tag get_user_avatar_url_for(post.user, :thumb), class: 'avatar-frame', height: '22#'%>
+  <%= image_tag get_user_avatar_url_for(post.user, :thumb), class: 'avatar-frame', height: '22#'%>
 
-    <%= link_to comment.user.user_name, profile_path(comment.user.user_name) %>:
+  <%= link_to comment.user.user_name, profile_path(comment.user.user_name), class: 'nav-link' %>:
 
-    <%= comment.body %>
+  <%= comment.body %>
 
-    <% if comment.user == current_user %>
-      <%= link_to fa_icon("remove"), post_comment_path(post, comment), confirm: 'Are you sure?', 
-          method: :delete, remote: true, class: 'pull-xs-right small text-muted' %>
-    <% end %>
+  <% if comment.user == current_user %>
+    <%= link_to fa_icon("remove"), post_comment_path(post, comment), method: :delete, 
+        remote: true, class: 'pull-xs-right small text-muted' %>
+  <% end %>
 
 </div>

@@ -1,27 +1,27 @@
 <div class="form-wrapper">
 
-  <h2 class="text-xs-center">Log in</h2>
+  <h3 class="text-xs-center text-muted">Welcome back</h3>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, class: 'form-control', autofocus: true %>
+      <%= f.label :email, hidden: true %><br />
+      <%= f.email_field :email, class: 'form-control', placeholder: 'E-mail', autofocus: true %>
     </div>
 
     <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
+      <%= f.label :password, hidden: true %><br />
+      <%= f.password_field :password, class: 'form-control', placeholder: 'Password', autocomplete: "off" %>
     </div>
 
     <% if devise_mapping.rememberable? -%>
-      <div class="field">
+      <div class="field m-t-1">
         <%= f.check_box :remember_me %>
         <%= f.label :remember_me %>
       </div>
     <% end -%>
 
     <div class="actions m-y-1">
-      <%= f.submit "Log in", class: 'btn btn-primary form-control' %>
+      <%= f.submit "Log in", class: 'btn btn-warning form-control' %>
     </div>
   <% end %>
 

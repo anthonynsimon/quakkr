@@ -2,7 +2,7 @@
   <div class="col-md-8 col-md-offset-2">
   
     <%= form_for(Post.new, remote: true) do |f| %>
-      <%= f.text_field :message, class: 'form-control', placeholder: 'What\'s quacking?',
+      <%= f.text_field :message, class: 'form-control form-control-lg', placeholder: 'What\'s quacking?',
           autocomplete: :off, autofocus: true %>
     <% end %>
   
@@ -25,7 +25,7 @@
   <div class="col-md-8 col-md-offset-2">
   
     <div id="paginator" class="m-y-3 text-xs-center">
-        <%= link_to_next_page @posts, 'LOAD MORE', remote: true, id: 'load_more', class: 'btn btn-primary-outline btn-block' %>
+        <%= link_to_next_page @posts, 'LOAD MORE', remote: true, id: 'load_more', class: 'btn btn-warning-outline btn-block' %>
     </div>
   
   </div>

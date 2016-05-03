@@ -1,11 +1,24 @@
-@import "partials/gradient";
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+
+@import "partials/gradient";
 
 $pacifico: 'Pacifico', cursive;
+$lato: 'Lato', sans-serif;
+
+$foreground-color: #fff;
+$background-color: #F9FBFA;
+
 $break-small: 768px;
 
+.navbar {
+  background-color: $foreground-color;
+  border: 1px solid #eeefef;
+}
+
 body {
-  background-color: #F9FBFA;
+  background-color: $background-color;
+  font-family: $lato;
 }
 
 p {
@@ -14,7 +27,7 @@ p {
 
 #brand-title {
   font-family: $pacifico;
-  color: white;
+  color: orange;
 }
 
 .avatar-frame {
@@ -40,11 +53,12 @@ p {
 .form-wrapper {
   width: 100%;
   @media screen and (min-width: $break-small) {
-    width: 60%;
+    width: 400px;
+    margin: 60px auto;
   }
-  margin: 20px auto;
-  background-color: #fff;
+  margin: 40px auto;
+  background-color: $foreground-color;
   padding: 40px;
   border: 1px solid #eeefef;
-  border-radius: 3px;
+  border-radius: 7px;
 }
