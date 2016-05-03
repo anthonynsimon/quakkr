@@ -15,13 +15,13 @@
 </div>
 
 
-<div class="row">
+<div class="row m-b-3">
   <div class="col-md-8 col-md-offset-2">
   
     <hr>
     
     <% if @user.posts.count == 0 %>
-      <p class="text-xs-center text-muted">You haven't quacked anything yet :(</p>
+      <p class="text-xs-center text-muted">No quacks given yet :(</p>
     <% else %>
       <div id="posts">
         <%= render partial: 'posts/post', collection: @user.posts.order(:created_at).reverse_order %>

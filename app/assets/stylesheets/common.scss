@@ -37,6 +37,14 @@ p {
   -webkit-border-radius: $radius;
 }
 
+.profile-edit-form {
+  width: 100%;
+  @media screen and (min-width: $break-small) {
+    max-width: 700px;
+    margin: 60px auto;
+  }
+}
+
 .bg-white {
   background-color: #fff;
 }
