@@ -17,7 +17,7 @@ module PostsHelper
   
   def recent_liker_and_count(votes)
     count = votes.voters.count
-    recent_liker = votes.voters.last
+    recent_liker = votes.voters.first
     
     result = []
     result << link_to(recent_liker.user_name, profile_path(recent_liker.user_name))
