@@ -21,7 +21,7 @@ module PostsHelper
     
     result = []
     result << link_to(recent_liker.user_name, profile_path(recent_liker.user_name))
-    result << "and #{count -1} others like this"
+    result << " #{count -1} others like this"
     
     result.to_sentence.html_safe
   end
