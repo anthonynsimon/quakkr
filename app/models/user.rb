@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  acts_as_voter
+
   validates :user_name, presence: true, uniqueness: true, length: { minimum: 4, maximum: 20 }, 
       :format => { with: /\A[a-zA-Z0-9_]*\z/, :message => 'may not contain special characters, only letters, numbers and underscores' }
   validates :bio, length: { maximum: 255 }
