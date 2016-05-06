@@ -1,15 +1,10 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :like, :unlike]
+  before_action :set_post, only: [:edit, :update, :destroy, :like, :unlike]
   before_action :authorize_edit, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.order(:created_at).reverse_order.page params[:page]
-  end
-
-  def show
-    # @post is set in before_action
-    @comment = Comment.new
   end
 
   def create
