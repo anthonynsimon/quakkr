@@ -1,7 +1,9 @@
-<div class="card">
-  <ul class="list-group list-group-flush">
-    <% posts.each do |post| %>
-      <%= render 'post', post: post %>
-    <% end %>
-  </ul>
-</div>
+<% unless posts.count <= 0 %>
+  <div class="card">
+    <ul class="list-group list-group-flush">
+      <% posts.each do |post| %>
+        <%= render 'post', post: post %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

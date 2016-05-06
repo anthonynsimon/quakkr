@@ -1,11 +1,20 @@
 <div class="row m-y-1">
   <div class="col-md-8 col-md-offset-2">
-  
-    <%= form_for(Post.new, remote: true) do |f| %>
-      <%= f.text_field :message, class: 'form-control form-control-lg', placeholder: 'What\'s quacking?',
-          autocomplete: :off, autofocus: true %>
+    
+    <% if current_user.nil? %>
+      <div class="alert alert-warning text-xs-center">
+        <p>
+          Hello guest! <%= link_to 'Sign in', new_user_session_path %> or 
+          <%= link_to 'Register', new_user_registration_path %> to add your own posts, it's free!
+        </p>
+      </div>
+    <% else %>
+      <%= form_for(Post.new, remote: true) do |f| %>
+        <%= f.text_field :message, class: 'form-control form-control-lg', placeholder: 'What\'s quacking?',
+            autocomplete: :off, autofocus: true %>
+      <% end %>
     <% end %>
-  
+    
     <hr class="m-y-2">
 
   </div>

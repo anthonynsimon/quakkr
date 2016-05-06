@@ -9,6 +9,24 @@ module PostsHelper
     end
   end
   
+  def like_button_for(post)
+    if current_user.nil?
+      link_to like_post_path(post.id), class: 'btn-sm' do
+        '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe
+      end
+    else
+      if current_user.voted_up_on? post
+        link_to unlike_post_path(post.id), class: 'btn-sm', remote: true do
+          '<i class="fa fa-heart" aria-hidden="true"></i>'.html_safe
+        end
+      else 
+        link_to like_post_path(post.id), class: 'btn-sm', remote: true do 
+          '<i class="fa fa-heart-o" aria-hidden="true"></i>'.html_safe
+        end 
+      end
+    end
+  end
+  
   private
   
   def list_likers(votes)
