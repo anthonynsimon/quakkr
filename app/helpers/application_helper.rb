@@ -9,10 +9,12 @@ module ApplicationHelper
   end
   
   def get_user_avatar_url_for(user, size)
-    if user.avatar.exists?(size)
-      user.avatar.url(size)
-    else
-      '/images/missing_avatar.png'
+    unless user.nil?
+      if user.avatar.exists?(size)
+        user.avatar.url(size)
+      else
+        '/images/missing_avatar.png'
+      end
     end
   end
 end
