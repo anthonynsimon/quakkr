@@ -1,11 +1,3 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: 
-  post_id: 
-  body: MyText
-
-two:
-  user_id: 
-  post_id: 
-  body: MyText
+one: {}
