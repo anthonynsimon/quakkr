@@ -1,17 +1,18 @@
 default: &default
-  adapter: postgresql
-  encoding: unicode
+  adapter: sqlite3
   pool: 5
-  host: localhost
+  timeout: 5000
 
 development:
   <<: *default
-  database: quack_development
+  database: db/development.sqlite3
 
 test:
   <<: *default
-  database: quack_test
+  database: db/test.sqlite3
   
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   url: <%= ENV["DATABASE_URL"] %>

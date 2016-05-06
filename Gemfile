@@ -12,9 +12,6 @@ gem 'kaminari'
 # Required to avoid conflict between jquery and turbolinks
 gem 'jquery-turbolinks'
 
-# Using Postgres as DB
-gem 'pg'
-
 # Paperclip for image attachments
 gem 'paperclip'
 
@@ -62,6 +59,9 @@ group :production do
   # Needed for proper deployment on Heroku
   gem 'rails_12factor'
   
+  # Using Postgres as DB
+  gem 'pg'
+  
   # ImageMagick for use in Heroku
   gem 'rmagick'
 end
@@ -77,5 +77,7 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  
+  gem 'sqlite3'
 end
 
