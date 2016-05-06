@@ -1,7 +1,12 @@
 module PostsHelper
   def likers_of(post)
     votes = post.votes_for.up.by_type(User)
-    return list_likers(votes) if votes.count < 4 else recent_liker_and_count(votes) 
+    
+    if votes.count < 4
+      list_likers(votes)
+    else
+      recent_liker_and_count(votes)
+    end
   end
   
   private
@@ -27,6 +32,10 @@ module PostsHelper
   end
 
   def pluralize_likes(count)
-    return ' like this' if count > 1 else ' likes this'
+    if count > 1 
+      ' like this'
+    else
+      ' likes this'
+    end
   end
 end
