@@ -1,22 +1,11 @@
-<p>
-  <strong>Message:</strong>
-  <%= @post.message %>
-</p>
-
-<div>
-  <h4>Comments:</h4> 
-  <div id="comments">
-    <% if @post.comments %>
-      <% @post.comments.each do |comment| %>
-        <%= render 'comments/comment', comment: comment%>
-      <% end %>
-    <% end %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 m-t-3">
+  
+    <%= render @post %>
+    
+    <div id="paginator" class="m-y-3 text-xs-center">
+        <%= link_to 'ALL POSTS', posts_path, id: 'load_more', class: 'btn btn-warning-outline btn-small' %>
+    </div>
+    
   </div>
 </div>
-
-<br>
-
-<% if current_user == @post.user %>
-  <%= link_to 'Edit', edit_post_path(@post) %> |
-<% end %>
-<%= link_to 'Back', posts_path %>

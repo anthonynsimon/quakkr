@@ -18,6 +18,9 @@
       <ul class="nav navbar-nav pull-xs-right">
         <% if current_user %>
           <li class="nav-item">
+            <%= render 'notifications/notifications', user: current_user %>          
+          </li>
+          <li class="nav-item">
             <%= link_to 'My Profile', profile_path(current_user.user_name), class: 'nav-link small text-muted' %>          
           </li>
           <li class="nav-item">

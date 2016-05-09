@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy, :like, :unlike]
-  before_action :set_post, only: [:edit, :update, :destroy, :like, :unlike]
+  before_action :authenticate_user!, only: [:create, :update, :destroy, :like, :unlike]
+  before_action :set_post, only: [:show, :update, :destroy, :like, :unlike]
   before_action :authorize_edit, only: [:edit, :update, :destroy]
 
   def index
@@ -20,6 +20,9 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  def show
   end
 
   def update

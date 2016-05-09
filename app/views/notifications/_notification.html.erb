@@ -1,0 +1,4 @@
+<%= link_to link_through_path(notification), class: 'dropdown-item small' do %>
+  <p><%= "#{notification.notified_by.user_name} commented on your post." %>
+  <p class="text-muted"><%= time_ago_in_words notification.created_at %> ago</p>
+<% end %>
