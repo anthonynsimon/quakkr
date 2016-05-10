@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   root 'posts#index'
   
   devise_for :users, controllers: { registrations: 'registrations' }
-  # resources :users, only: [:show]
   
   resources :posts do
     resources :comments
@@ -18,6 +17,10 @@ Rails.application.routes.draw do
   get ':user_name', to: 'profiles#show', as: :profile
   get ':user_name/edit', to: 'profiles#edit', as: :edit_profile
   patch ':user_name', to: 'profiles#update'
+  
+  # User relationships routes
+  post ':user_name/relationship', to: 'relationships#create', as: :create_relationship
+  delete ':user_name/relationship', to: 'relationships#destroy', as: :delete_relationship
   
   # Notification link through
   get 'notifications/:id', to: 'notifications#link_through', as: :link_through

@@ -4,12 +4,20 @@
   <h4><%= @user.user_name %></h4>
   
   <% if @user == current_user %>
-    <%= link_to 'Edit Profile', edit_profile_path(@user.user_name), class: 'btn btn-secondary-outline btn-sm' %>
+    <%= link_to 'Edit Profile', edit_profile_path(@user.user_name), class: 'btn btn-warning-outline btn-sm' %>
+  <% else %>
+    <% if current_user.follows? @user %>
+      <%= link_to 'Unfollow', delete_relationship_path(@user.user_name), method: :delete, class: 'btn btn-warning-outline btn-sm' %>
+    <% else %>
+      <%= link_to 'Follow', create_relationship_path(@user.user_name), method: :post, class: 'btn btn-warning-outline btn-sm' %>
+    <% end %>
   <% end %>
   
   <%= content_tag :p, @user.bio, class: 'text-muted m-t-1' %>
   
   <p class="text-muted">
+    <%= pluralize @user.followers.count, 'follower' %> | 
+    <%= @user.following.count %> following<br>
     <%= pluralize @user.posts.count, 'post' %>
   </p>
 </div>
