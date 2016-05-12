@@ -1,0 +1,24 @@
+<% if current_user %>
+  <li class="nav-item">
+    <%= render 'notifications/notifications', user: current_user %>          
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Feed', root_path, class: 'nav-link small text-muted' %>          
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Browse', browse_posts_path, class: 'nav-link small text-muted' %>          
+  </li>
+  <li class="nav-item">
+    <%= link_to 'My Profile', profile_path(current_user.user_name), class: 'nav-link small text-muted' %>          
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link small text-muted' %>          
+  </li>
+<% else %>
+  <li class="nav-item">
+    <%= link_to 'Login', new_user_session_path, class: 'nav-link small text-muted' %>          
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link small text-muted' %>          
+  </li>
+<% end %>

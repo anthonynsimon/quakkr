@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'profiles/show'
-
-  root 'posts#index'
+  root 'posts#browse'
   
   devise_for :users, controllers: { registrations: 'registrations' }
+  
+  get 'browse', to: 'posts#browse', as: :browse_posts
   
   resources :posts do
     resources :comments

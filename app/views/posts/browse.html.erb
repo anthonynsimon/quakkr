@@ -21,11 +21,6 @@
   <div class="col-md-8 col-md-offset-2">
   
     <div id="posts">
-      <% if @posts.count == 0 %>
-        <p class="text-xs-center">
-          You aren't following anyone yet. <%= link_to 'Find some friends and follow them!', browse_posts_path %>
-        </p>
-      <% end %>
       <%= render 'posts', posts: @posts %>
     </div>
     

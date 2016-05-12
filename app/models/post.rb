@@ -8,4 +8,6 @@ class Post < ActiveRecord::Base
   
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  
+  scope :by_users, -> (user) { where(user: user) }
 end

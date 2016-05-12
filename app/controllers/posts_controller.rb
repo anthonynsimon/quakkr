@@ -4,6 +4,10 @@ class PostsController < ApplicationController
   before_action :authorize_edit, only: [:edit, :update, :destroy]
 
   def index
+    @posts = Post.by_users(current_user.following).order(:created_at).reverse_order.page params[:page]
+  end
+  
+  def browse
     @posts = Post.order(:created_at).reverse_order.page params[:page]
   end
 

@@ -1,0 +1,4 @@
+<%= form_for(Post.new, remote: true) do |f| %>
+  <%= f.text_field :message, class: 'form-control form-control-lg', placeholder: 'What\'s quacking?',
+      autocomplete: :off, autofocus: true %>
+<% end %>
