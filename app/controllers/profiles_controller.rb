@@ -4,6 +4,9 @@ class ProfilesController < ApplicationController
   before_action :authorize_edit, only: [:edit, :update, :destroy]
 
   def show
+    if @user.nil?
+      not_found
+    end
   end
   
   def edit
