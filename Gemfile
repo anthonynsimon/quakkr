@@ -66,9 +66,19 @@ group :production do
   gem 'rmagick'
 end
 
+group :test do
+  gem 'faker'
+  
+  gem 'capybara'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  
+  gem 'factory_girl_rails'
+  
+  gem 'rspec-rails'
 end
 
 group :development do
