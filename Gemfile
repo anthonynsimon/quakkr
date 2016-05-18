@@ -70,6 +70,8 @@ group :test do
   gem 'faker'
   
   gem 'capybara'
+  
+  gem 'shoulda-matchers'
 end
 
 group :development, :test do
