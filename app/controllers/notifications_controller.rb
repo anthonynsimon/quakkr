@@ -1,4 +1,6 @@
 class NotificationsController < ApplicationController
+  before_action :authenticate_user!, only: [:link_through]
+  before_action :authorize_read, only: [:link_through]
   before_action :set_notification, only: [:link_through]
 
   def link_through
@@ -10,5 +12,11 @@ class NotificationsController < ApplicationController
   
   def set_notification
     @notification = Notification.find(params[:id])
+  end
+  
+  def authorize_read
+    if current_user != @notification.user
+      redirect_to root_path
+    end
   end
 end
