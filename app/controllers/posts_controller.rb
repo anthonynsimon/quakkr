@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :update, :destroy, :like, :unlike]
-  before_action :set_post, only: [:show, :update, :destroy, :like, :unlike]
-  before_action :authorize_edit, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :destroy, :like, :unlike]
+  before_action :set_post, only: [:show, :destroy, :like, :unlike]
+  before_action :authorize_edit, only: [:edit, :destroy]
 
   def index
     @posts = Post.by_users(current_user.following).order(:created_at).reverse_order.page params[:page]
@@ -27,18 +27,6 @@ class PostsController < ApplicationController
   end
   
   def show
-  end
-
-  def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
   end
   
   def destroy
