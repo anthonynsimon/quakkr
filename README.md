@@ -1,4 +1,4 @@
 # Quakkr
 Typical posts-comments rails app, for fun.
 
-Live at: http://quacking.herokuapp.com
+Live at: http://quakkr.herokuapp.com
