@@ -63,7 +63,7 @@ group :production do
   gem 'pg'
   
   # ImageMagick for use in Heroku
-  gem 'rmagick'
+  #gem 'rmagick'
 end
 
 group :test do
