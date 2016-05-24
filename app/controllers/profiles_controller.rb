@@ -7,6 +7,8 @@ class ProfilesController < ApplicationController
     if @user.nil?
       not_found
     end
+    
+    @posts = @user.posts.order(:created_at).reverse_order
   end
   
   def edit

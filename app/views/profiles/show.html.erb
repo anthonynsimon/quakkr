@@ -31,8 +31,8 @@
     <% if @user.posts.count == 0 %>
       <p class="text-xs-center text-muted">No quacks given yet :(</p>
     <% else %>
-      <div id="posts">
-        <%= render partial: 'posts/post', collection: @user.posts.order(:created_at).reverse_order %>
+      <div id="posts" class="soft-shadow bg-rounded-box">
+        <%= render partial: 'posts/post', collection: @posts %>
       </div>
     <% end %>
     
