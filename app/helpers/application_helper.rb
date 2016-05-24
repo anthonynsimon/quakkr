@@ -13,7 +13,7 @@ module ApplicationHelper
       if user.avatar.exists?(size)
         user.avatar.url(size)
       else
-        '/images/missing_avatar.png'
+        "/images/sample_avatar_#{Random.new.rand(3)}.jpg"
       end
     end
   end
