@@ -55,6 +55,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'faker'
+
 group :production do
   # Needed for proper deployment on Heroku
   gem 'rails_12factor'
@@ -67,7 +69,6 @@ group :production do
 end
 
 group :test do
-  gem 'faker'
   
   gem 'capybara'
   
