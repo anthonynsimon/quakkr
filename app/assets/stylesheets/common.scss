@@ -11,13 +11,13 @@ $background-color: #F9FBFA;
 
 $break-small: 768px;
 
-.navbar {
-  background-color: $foreground-color;
-}
-
 body {
   background-color: $background-color;
   font-family: $lato;
+}
+
+.navbar {
+  background-color: $foreground-color;
 }
 
 p {
