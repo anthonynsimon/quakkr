@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
   def show
     if @user.nil?
       not_found
+      return
     end
     
     @posts = @user.posts.order(:created_at).reverse_order
