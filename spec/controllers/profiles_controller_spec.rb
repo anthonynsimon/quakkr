@@ -22,7 +22,11 @@ describe ProfilesController, :type => :controller do
       expect(response).to render_template(:show)
     end
     
-    it 'renders the not found template if no user was found'
+    it 'renders the not found template if no user was found' do
+      expect{
+        get :show, user_name: Faker::Internet.user_name
+      }.to raise_error(ActionController::RoutingError)
+    end
   end
   
   describe 'GET #edit' do
