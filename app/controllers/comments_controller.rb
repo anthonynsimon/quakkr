@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
   before_action :set_post
+  before_action :set_comment, only: [:destroy]
+  before_action :authorize_destroy, only: [:destroy]
   
   def index
     @comments = @post.comments.order("created_at ASC")
@@ -29,7 +31,6 @@ class CommentsController < ApplicationController
   end
   
   def destroy
-    @comment = @post.comments.find(params[:id])
     if @comment.destroy
       respond_to do |format|
         format.html do
@@ -51,6 +52,10 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
   end
   
+  def set_comment
+    @comment = @post.comments.find(params[:id])
+  end
+  
   def create_notification(post, comment)
     unless post.user.id == current_user.id
       Notification.create(
@@ -59,6 +64,12 @@ class CommentsController < ApplicationController
         post_id: post.id,
         identifier: comment.id,
         event_type: 'comment')
+    end
+  end
+  
+  def authorize_destroy
+    if current_user.id != @comment.user_id
+      redirect_to root_path
     end
   end
 end
