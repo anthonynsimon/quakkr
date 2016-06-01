@@ -1,7 +1,8 @@
 # Quakkr
 Typical posts-comments rails app, for fun.
 
-Try it out: http://quakkr.herokuapp.com
+Try it out: http://quakkr.herokuapp.com  
+*Give it a few seconds, Heroku needs to spin up a new dyno :)
 
 ```
 Notes:  
