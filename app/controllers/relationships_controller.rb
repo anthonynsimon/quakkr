@@ -4,22 +4,25 @@ class RelationshipsController < ApplicationController
   before_action :set_relationship, only: [:destroy]
 
   def create
-    @relationship = Follow.create(follower_id: current_user.id, following_id: @subject_user.id)
+    @relationship = Follow.create(
+      follower_id: current_user.id,
+      following_id: @subject_user.id
+    )
     redirect_to :back
   end
-  
+
   def destroy
-    unless @relationship.nil?
-      @relationship.destroy
-    end
-    
+    @relationship.destroy unless @relationship.nil?
     redirect_to :back
   end
-  
+
   private
-  
+
   def set_relationship
-    @relationship = Follow.find_by(follower_id: current_user.id, following_id: @subject_user.id)
+    @relationship = Follow.find_by(
+      follower_id: current_user.id,
+      following_id: @subject_user.id
+    )
   end
 
   def set_subject_user

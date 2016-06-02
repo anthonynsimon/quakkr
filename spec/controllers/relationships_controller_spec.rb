@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-describe RelationshipsController do
+describe RelationshipsController, type: :controller do
   before :each do
     # Needed for redirect_to :back to work
-    request.env["HTTP_REFERER"] = root_path
-    
+    request.env['HTTP_REFERER'] = root_path
+
     @user = FactoryGirl.create(:user)
     @other_user = FactoryGirl.create(:user)
     sign_in @user
@@ -16,7 +16,7 @@ describe RelationshipsController do
         post :create, user_name: @other_user.user_name
       }.to change(Follow, :count).by(1)
     end
-    
+
     it 'redirects the request if the user is not authenticated' do
       sign_out @user
       post :create, user_name: @other_user.user_name
@@ -28,13 +28,13 @@ describe RelationshipsController do
     before :each do
       post :create, user_name: @other_user.user_name
     end
-  
+
     it 'deletes the @relationship if the user is authorized' do
       expect{
         delete :destroy, user_name: @other_user.user_name
       }.to change(Follow, :count).by(-1)
     end
-    
+
     it 'checks for the existence of a relationship before removing it' do
       expect{
         2.times do
@@ -42,7 +42,7 @@ describe RelationshipsController do
         end
       }.to change(Follow, :count).by(-1)
     end
-    
+
     it 'redirects the request if the user is not authenticated' do
       sign_out @user
       delete :destroy, user_name: @other_user.user_name

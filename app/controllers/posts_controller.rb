@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.by_users(current_user.following).order(:created_at).reverse_order.page params[:page]
   end
-  
+
   def browse
     @posts = Post.order(:created_at).reverse_order.page params[:page]
   end
@@ -25,10 +25,10 @@ class PostsController < ApplicationController
       end
     end
   end
-  
+
   def show
   end
-  
+
   def destroy
     @post.destroy
     respond_to do |format|
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def like
     if @post.liked_by current_user
       respond_to do |format|
@@ -56,17 +56,16 @@ class PostsController < ApplicationController
   end
 
   private
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    def post_params
-      params.require(:post).permit(:message)
-    end
-    
-    def authorize_edit
-      if current_user != @post.user
-        redirect_to root_path
-      end
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:message)
+  end
+
+  def authorize_edit
+    redirect_to root_path if current_user != @post.user
+  end
 end

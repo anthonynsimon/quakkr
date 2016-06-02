@@ -7,16 +7,14 @@ class NotificationsController < ApplicationController
     @notification.update read: true
     redirect_to post_path(@notification.post)
   end
-  
+
   private
-  
+
   def set_notification
     @notification = Notification.find(params[:id])
   end
-  
+
   def authorize_read
-    if current_user != @notification.user
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user != @notification.user
   end
 end
